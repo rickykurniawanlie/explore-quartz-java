@@ -1,0 +1,13 @@
+rootProject.name = 'explore-quartz'
+
+def includeSubdirectories() {
+    def currentDir = rootProject.projectDir
+    currentDir.eachDir { subDir ->
+        if (file("$subDir/build.gradle").exists())
+            include "${subDir.path.substring(currentDir.path.length()).replace(File.separator, ":")}"
+    }
+}
+
+includeSubdirectories()
+include '01-using-quartz'
+

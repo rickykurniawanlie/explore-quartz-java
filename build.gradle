@@ -1,0 +1,21 @@
+subprojects {
+    apply plugin: 'java'
+    apply from: file("$rootProject.projectDir/gradle/heroku/stage.gradle")
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+task upper {
+    doLast {
+        String someString = 'mY_nAmE'
+        println "Original: $someString"
+        println "Upper case: ${someString.toUpperCase()}"
+    }
+}
